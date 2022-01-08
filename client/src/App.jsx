@@ -13,31 +13,26 @@ const App = () => {
 				<Route
 					path="/"
 					element={user ? <Home /> : <Navigate to="/register" />}
-				></Route>
-			</Routes>
-			<Routes>
+				/>
+
 				<Route
 					path="/register"
 					element={!user ? <Register /> : <Navigate to="/" />}
-				></Route>
-			</Routes>
-			<Routes>
+				/>
+
 				<Route
 					path="/login"
 					element={!user ? <Login /> : <Navigate to="/" />}
-				></Route>
+				/>
+
+				{user && (
+					<>
+						<Route path="/watch" element={<Watch />} />
+						<Route path="/movies" element={<Home type="movies" />} />
+						<Route path="/series" element={<Home type="series" />} />
+					</>
+				)}
 			</Routes>
-			{user && (
-				<>
-					<Routes>
-						<Route path="/movies" element={<Home type="movies" />}></Route>
-						<Route path="/series" element={<Home type="series" />}></Route>
-					</Routes>
-					<Routes>
-						<Route path="/watch" element={<Watch />}></Route>
-					</Routes>
-				</>
-			)}
 		</BrowserRouter>
 	);
 };
