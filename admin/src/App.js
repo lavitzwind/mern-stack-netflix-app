@@ -63,7 +63,7 @@ function App() {
 					}
 				></Route>
 				<Route
-					path="/products"
+					path="/movies"
 					element={
 						<>
 							<Topbar />
